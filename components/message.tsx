@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { memo, useCallback, useEffect, useState } from "react";
 import equal from "fast-deep-equal";
 
-import { Markdown } from "./markdown";
+import { Streamdown } from "streamdown";
 import { cn } from "@/lib/utils";
 import {
   CheckCircle,
@@ -103,7 +103,7 @@ export function ReasoningMessagePart({
           >
             {part.details.map((detail, detailIndex) =>
               detail.type === "text" ? (
-                <Markdown key={detailIndex}>{detail.text}</Markdown>
+                <Streamdown key={detailIndex}>{detail.text}</Streamdown>
               ) : (
                 "<redacted>"
               ),
@@ -165,7 +165,7 @@ const PurePreviewMessage = ({
                             message.role === "user",
                         })}
                       >
-                        <Markdown>{part.text}</Markdown>
+                        <Streamdown>{part.text}</Streamdown>
                       </div>
                     </motion.div>
                   );
